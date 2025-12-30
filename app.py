@@ -8,7 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 # Model (API key from environment)
 model = ChatGroq(
-    groq_api_key="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",
+    groq_api_key=os.getenv('GROQ_API_KEY'),
     model="llama-3.3-70b-versatile"
 )
 
@@ -56,4 +56,5 @@ if st.button("Get Recommendations"):
         for i, movie in enumerate(recommendations, 1):
             st.write(f"{i}. {movie}")
     else:
+
         st.warning("Please enter a movie name")
